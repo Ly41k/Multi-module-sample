@@ -19,3 +19,6 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
+include(":common:api")
+include(":common:data")
+include(":common:presentation")
