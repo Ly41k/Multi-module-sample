@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
 }
 
-kotlin {
+kotlin{
 
     androidTarget {
         compilations.all {
@@ -14,16 +14,17 @@ kotlin {
         }
     }
 
-    sourceSets {
+    sourceSets{
         commonMain.dependencies {
-            implementation(libs.kotlin.serialization)
+            implementation(projects.common.api)
+            implementation(projects.common.core)
+            implementation(libs.kodein)
         }
     }
-
 }
 
 android {
-    namespace = "org.example.multimodulesample.api"
+    namespace = "org.example.multimodulesample.data"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {
