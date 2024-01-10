@@ -1,10 +1,10 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.kotlinSerialization)
+//    alias(libs.plugins.kotlinSerialization)
 }
 
-kotlin{
+kotlin {
 
     androidTarget {
         compilations.all {
@@ -14,11 +14,14 @@ kotlin{
         }
     }
 
-    sourceSets{
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+    sourceSets {
         commonMain.dependencies {
             implementation(projects.common.api)
             implementation(projects.common.core)
-            implementation(libs.kodein)
         }
     }
 }
