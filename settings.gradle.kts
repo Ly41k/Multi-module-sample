@@ -19,9 +19,9 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
-include(":common:api")
-include(":common:data")
+include(":common:feature:api")
+include(":common:feature:data")
 //include(":common:presentation")
 include(":common:core")
-include(":common:domain")
+include(":common:feature:domain")
 //include(":common:umbrella")

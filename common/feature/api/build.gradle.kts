@@ -20,16 +20,15 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(projects.common.api)
-            implementation(projects.common.domain)
             implementation(projects.common.core)
             implementation(libs.kotlin.serialization)
         }
     }
+
 }
 
 android {
-    namespace = "org.example.multimodulesample.data"
+    namespace = "org.example.multimodulesample.feature.api"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {
