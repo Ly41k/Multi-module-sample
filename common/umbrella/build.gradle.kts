@@ -1,5 +1,3 @@
-import org.jetbrains.compose.ExperimentalComposeLibrary
-
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
@@ -23,18 +21,12 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.components.resources)
 
             implementation(projects.common.core)
-            implementation(projects.common.feature.presentation)
-
-            implementation(libs.kviewmodel.core)
-            implementation(libs.kviewmodel.compose)
-            implementation(libs.kviewmodel.odyssey)
+            implementation(projects.common.splash.compose)
+            implementation(projects.common.feature.compose)
+            implementation(projects.common.feature.data)
+            implementation(projects.common.feature.domain)
 
             implementation(libs.odyssey.core)
             implementation(libs.odyssey.compose)
@@ -43,7 +35,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.example.multimodulesample.feature.compose"
+    namespace = "org.example.multimodulesample.umbrella"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {

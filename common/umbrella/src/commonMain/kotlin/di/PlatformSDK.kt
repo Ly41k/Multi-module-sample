@@ -18,7 +18,8 @@ object PlatformSDK {
             DI {
                 importAll(
                     coreModule,
-//                    dataModule,
+                    dataModule,
+                    domainModule,
                     umbrellaModule
                 )
             }.direct

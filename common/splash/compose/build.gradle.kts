@@ -3,7 +3,6 @@ import org.jetbrains.compose.ExperimentalComposeLibrary
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.jetbrainsCompose)
 }
 
@@ -23,48 +22,29 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material3)
+            implementation(compose.material)
             implementation(compose.ui)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
-            api(libs.coroutines.core)
-            api(libs.ktor.core)
-            api(libs.kodein)
+            implementation(projects.common.core)
 
-            implementation(libs.ktor.json)
-            implementation(libs.ktor.serialization)
-            implementation(libs.ktor.negotiation)
-            implementation(libs.ktor.serialization)
-            implementation(libs.ktor.kotlinx.json)
-            implementation(libs.ktor.logging)
-        }
-
-        androidMain.dependencies {
-            implementation(libs.ktor.android)
-            implementation(libs.androidx.core)
-        }
-
-        iosMain.dependencies {
-            implementation(libs.ktor.ios)
+            implementation(libs.odyssey.core)
+            implementation(libs.odyssey.compose)
         }
     }
 }
 
 android {
-    namespace = "org.example.multimodulesample.core"
+    namespace = "org.example.multimodulesample.splash.compose"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlin {
         jvmToolchain {
             languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.toString()))

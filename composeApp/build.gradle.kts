@@ -40,8 +40,11 @@ kotlin {
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
-//            implementation(projects.common.core)
-//            implementation(projects.common.umbrella)
+            implementation(projects.common.core)
+            implementation(projects.common.umbrella)
+
+            implementation(libs.odyssey.core)
+            implementation(libs.odyssey.compose)
         }
     }
 }
