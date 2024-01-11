@@ -1,7 +1,6 @@
 package di
 
 import coreModule
-import dataModule
 import org.kodein.di.DI
 import org.kodein.di.bind
 import org.kodein.di.direct
@@ -19,7 +18,7 @@ object PlatformSDK {
             DI {
                 importAll(
                     coreModule,
-                    dataModule,
+//                    dataModule,
                     umbrellaModule
                 )
             }.direct

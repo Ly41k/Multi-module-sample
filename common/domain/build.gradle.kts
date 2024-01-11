@@ -20,13 +20,12 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(projects.common.core)
-            implementation(projects.common.data)
         }
     }
 }
 
 android {
-    namespace = "org.example.multimodulesample.umbrella"
+    namespace = "org.example.multimodulesample.domain"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {

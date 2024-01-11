@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
-//    alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -21,7 +21,9 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(projects.common.api)
+            implementation(projects.common.domain)
             implementation(projects.common.core)
+            implementation(libs.kotlin.serialization)
         }
     }
 }
