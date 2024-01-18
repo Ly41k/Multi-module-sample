@@ -1,4 +1,5 @@
 package screentwo.models
 
-class SecondScreenAction {
+sealed class SecondScreenAction {
+    data object Back : SecondScreenAction()
 }

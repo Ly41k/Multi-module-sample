@@ -26,8 +26,6 @@ fun FirstScreen() {
                 )
 
             null -> {}
-
         }
     }
-
 }

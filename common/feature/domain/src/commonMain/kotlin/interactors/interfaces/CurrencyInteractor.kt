@@ -1,6 +1,9 @@
 package interactors.interfaces
 
-interface CurrencyInteractor {
-    fun getCurrencyExchangeRates()
-}
+import kotlinx.coroutines.flow.Flow
+import models.ExchangeRatesViewItemModel
+import models.RatesViewItemModel
 
+interface CurrencyInteractor {
+    val currencyRatesFlow: Flow<ExchangeRatesViewItemModel>
+}

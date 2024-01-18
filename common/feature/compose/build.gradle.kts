@@ -31,6 +31,7 @@ kotlin {
 
             implementation(projects.common.core)
             implementation(projects.common.feature.presentation)
+            implementation(projects.common.feature.domain)
 
             implementation(libs.kviewmodel.core)
             implementation(libs.kviewmodel.compose)
