@@ -1,18 +1,15 @@
 package screentwo
 
-import com.adeo.kviewmodel.BaseSharedViewModel
+import presentation.CoreSharedViewModel
 import screentwo.models.SecondScreenAction
 import screentwo.models.SecondScreenEvent
 import screentwo.models.SecondScreenViewState
 
 class SecondScreenViewModel(
     currentRate: String?
-) : BaseSharedViewModel<SecondScreenViewState, SecondScreenAction, SecondScreenEvent>(
+) : CoreSharedViewModel<SecondScreenViewState, SecondScreenAction, SecondScreenEvent>(
     initialState = SecondScreenViewState(currentRate = currentRate.orEmpty())
 ) {
-    init {
-        println("TESTING_TAG - currentRate -$currentRate")
-    }
 
     override fun obtainEvent(viewEvent: SecondScreenEvent) {
         when (viewEvent) {
@@ -21,6 +18,6 @@ class SecondScreenViewModel(
     }
 
     private fun popBackStack() {
-        viewAction = SecondScreenAction.Back
+        viewSingleAction = SecondScreenAction.Back
     }
 }

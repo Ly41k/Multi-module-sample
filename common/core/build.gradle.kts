@@ -40,6 +40,8 @@ kotlin {
             implementation(libs.ktor.serialization)
             implementation(libs.ktor.kotlinx.json)
             implementation(libs.ktor.logging)
+
+            implementation(libs.kviewmodel.core)
         }
 
         androidMain.dependencies {

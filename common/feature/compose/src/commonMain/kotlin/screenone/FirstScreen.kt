@@ -14,7 +14,7 @@ fun FirstScreen() {
 
     StoredViewModel(factory = { FirstScreenViewModel() }) { viewModel ->
         val state = viewModel.viewStates().observeAsState().value
-        val action = viewModel.viewActions().observeAsState().value
+        val action = viewModel.viewSingleActions().observeAsState().value
 
         FirstView(state = state) { viewModel.obtainEvent(it) }
 

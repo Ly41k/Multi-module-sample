@@ -1,6 +1,5 @@
 package screenone
 
-import com.adeo.kviewmodel.BaseSharedViewModel
 import di.Inject
 import interactors.interfaces.CurrencyInteractor
 import kotlinx.coroutines.Dispatchers
@@ -13,11 +12,12 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import models.ExchangeRatesViewItemModel
+import presentation.CoreSharedViewModel
 import screenone.models.FirstScreenAction
 import screenone.models.FirstScreenEvent
 import screenone.models.FirstScreenViewState
 
-class FirstScreenViewModel : BaseSharedViewModel<FirstScreenViewState, FirstScreenAction, FirstScreenEvent>(
+class FirstScreenViewModel : CoreSharedViewModel<FirstScreenViewState, FirstScreenAction, FirstScreenEvent>(
     initialState = FirstScreenViewState()
 ) {
 
@@ -45,9 +45,8 @@ class FirstScreenViewModel : BaseSharedViewModel<FirstScreenViewState, FirstScre
     }
 
     private fun openSecondScreen() {
-        val tmp = viewState.getCurrencyRate()
-        println("TESTING_TAG - tmp - $tmp")
-        viewAction = FirstScreenAction.OpenSecondScreen(tmp)
+        val currencyRate = viewState.getCurrencyRate()
+        viewSingleAction = FirstScreenAction.OpenSecondScreen(currencyRate)
     }
 
     private fun obtainCurrencyRates(viewItem: ExchangeRatesViewItemModel) {

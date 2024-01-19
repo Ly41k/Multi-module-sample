@@ -13,7 +13,7 @@ fun SecondScreen(currentRate: String? = null) {
 
     StoredViewModel(factory = { SecondScreenViewModel(currentRate) }) { viewModel ->
         val state = viewModel.viewStates().observeAsState().value
-        val action = viewModel.viewActions().observeAsState().value
+        val action = viewModel.viewSingleActions().observeAsState().value
 
         SecondView(state = state) { viewModel.obtainEvent(it) }
 
